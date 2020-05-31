@@ -1,2 +1,4 @@
 packages/*.deb
 packages/*.rpm
+*.bak
+*~

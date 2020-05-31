@@ -1,38 +1,34 @@
-# docker images for Micro Focus Vertica
+# docker images for Micro Focus Vertica 10
 
-Docker images collection for Vertica database
+Docker images collection for Vertica database, forked from https://github.com/jbfavre/vertica
 
 Vertica is a column oriented database from Micro Focus.  
-It's available with both a free community licence, and an enterprise one.
+It's available with both a free community license allowing up to 1 TB data on up to 3 nodes, and an enterprise license allowing larger data sets and clusters.
 
 ## News
 
-* __2019, Apr. 8th__:  
-  Support of Vertica 8.x has been removed because I'm lacking time to manage it.
-* __2018, Jan. 31th__:  
-  Support of Vertica 7.x has been removed since this version has been EOL for quite a time.
+* __2020, May. 31st__:  
+  Adding Vertica 10 on CentOS 7.x
 
 ## Flavours
 
 Following Vertica/Operating systems versions are provided:
-- Vertica 9.x (currently 9.2)
-  * on Ubuntu LTS 16.04
-  * on Debian 8.0 Jessie
+- Vertica 10.x (currently 10.0)
   * on CentOS 7 (Thanks to @pcerny for the work)
 
-__latest__ tag follows the Debian flavour of the image.
+__latest__ tag follows the CentOS image.
 
 ## Usage
 
 You can use the image without persistent data store:
 
-    docker run -p 5433:5433 jbfavre/vertica:9.2.0-7_debian-8
+    docker run -p 5433:5433 bryanherger/vertica:10.0.0-0_centos-7
 
 Or with persistent data store:
 
     docker run -p 5433:5433 -d \
                -v /path/to/vertica_data:/home/dbadmin/docker \
-               jbfavre/vertica:9.2.0-7_debian-8
+               bryanherger/vertica:10.0.0-0_centos-7
 
 Or with custom database name (default is "docker") or database password (default is no password):
 
@@ -45,11 +41,9 @@ Save it in packages directory.
 
 Then, use following command:
 
-    docker build -f Dockerfile.<OS_codename>.<OS_version>_<Vertica_version> \
-                 --build-arg VERTICA_PACKAGE=<vertica_package_name_matching_OS.deb/.rpm> \
-                 -t jbfavre/vertica:<Vertica_version>_<OS_codename>-<OS_version> .
+make build
 
-Or have a look into `Makefile`.
+The Makefile wraps the docker build command, copy the command(s) from there to cuastomize the build.
 
 ## Want to contribute ?
 
