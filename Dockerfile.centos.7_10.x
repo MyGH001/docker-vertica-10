@@ -1,5 +1,5 @@
 FROM centos:centos7
-MAINTAINER Jean Baptiste Favre <docker@jbfavre.org>
+MAINTAINER Bryan Herger <bryanherger@gmail.com>
 
 ARG VERTICA_PACKAGE="unknown"
 ARG VERTICA_LICENSE="CE"
