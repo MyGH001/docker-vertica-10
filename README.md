@@ -34,6 +34,16 @@ Or with custom database name (default is "docker") or database password (default
 
     docker run -p 5433:5433 -e DATABASE_NAME='notdocker' -e DATABASE_PASSWORD='foo123' jbfavre/vertica:9.2.0-7_debian-8
 
+Or, you can try Eon mode by passing the following environment variables.  This should work with AWS, Pure Storage, and MinIO endpoints:
+
+    AWS_ACCESS_KEY_ID (required)
+    AWS_SECRET_ACCESS_KEY (required)
+    AWS_ENDPOINT (required)
+    COMMUNAL_STORAGE (required, specify URI as s3://bucket/path)
+    AWS_REGION (optional, default us-west-1
+    AWS_ENABLE_HTTPS (optional, default 0 / false)
+    EON_SHARD_COUNT (optional, default 3)
+
 ## How to build from Dockerfile
 
 You have to get relevant Vertica package from my.vertica.com (registration mandatory).  
