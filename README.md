@@ -32,7 +32,7 @@ Or with persistent data store:
 
 Or with custom database name (default is "docker") or database password (default is no password):
 
-    docker run -p 5433:5433 -e DATABASE_NAME='notdocker' -e DATABASE_PASSWORD='foo123' jbfavre/vertica:9.2.0-7_debian-8
+    docker run -p 5433:5433 -e DATABASE_NAME='notdocker' -e DATABASE_PASSWORD='foo123' bryanherger/vertica:10.0.0-0_centos-7
 
 Or, you can try Eon mode by passing the following environment variables.  This should work with AWS, Pure Storage, and MinIO endpoints:
 
